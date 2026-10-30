@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B1F33">
+    <title>Classroom Availability | CollegeConnect</title>
+    <link rel="stylesheet" href="./css/classrooms.css">
+</head>
+<body data-requires-auth="true">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-mark">CC</div>
+            <div>
+                <h2>CollegeConnect</h2>
+                <span>Smart College Resource Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <p class="nav-title">MAIN</p>
+
+                <a href="dashboard.html">
+                    <span class="nav-icon">⌂</span> Dashboard
+                </a>
+
+                <a href="classrooms.html" class="active">
+                    <span class="nav-icon">▦</span> Classrooms
+                </a>
+
+                <a href="timetable.html">
+                    <span class="nav-icon">◫</span> Timetable
+                </a>
+
+                <a href="complaints.html">
+                    <span class="nav-icon">⚑</span> Complaints
+                </a>
+            </div>
+
+            
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-box">
+                <div class="help-icon">?</div>
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact your college administrator.</p>
+                </div>
+            </div>
+
+            <a href="login.html" class="signout" id="signOutBtn">
+                <span>↪</span> Sign Out
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="breadcrumb">
+                <span>CollegeConnect</span>
+                <b>/</b>
+                <strong>Classrooms</strong>
+            </div>
+
+            <div class="topbar-right">
+                <button class="notification-btn"
+                        type="button"
+                        aria-label="Notifications">♢</button>
+
+                <div class="profile">
+                    <div class="profile-avatar" id="profileAvatar">U</div>
+
+                    <div class="profile-info">
+                        <strong id="profileName">User</strong>
+                        <span id="profileRole">Student</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="page-content">
+
+            <div class="page-heading">
+                <div>
+                    <span class="page-label">RESOURCE FINDER</span>
+                    <h1>Classroom Availability</h1>
+                    <p>
+                        Find suitable classrooms based on timetable,
+                        capacity and available resources.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Classroom Search -->
+            <section class="finder-card">
+
+                <div class="finder-header">
+                    <div class="finder-icon">⌕</div>
+                    <div>
+                        <h2>Smart Classroom Finder</h2>
+                        <p>
+                            Select your requirements to find an
+                            available classroom.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="classroomSearchForm">
+
+                    <div class="filter-grid">
+
+                        <!-- Branch: unique ID for Classroom Finder -->
+                        <div class="form-group">
+                            <label for="classroomBranch">Branch</label>
+
+                            <select id="classroomBranch" name="branch">
+                                <option value="">All Branches</option>
+                                <option value="INFT">INFT</option>
+                                <option value="CMPN">CMPN</option>
+                                <option value="EXTC">EXTC</option>
+                                <option value="EXCS">EXCS</option>
+                                <option value="BIOMED">BIOMED</option>
+                            </select>
+                        </div>
+
+                        <!-- Division: unique ID for Classroom Finder -->
+                        <div class="form-group">
+                            <label for="classroomDivision">Division</label>
+
+                            <select id="classroomDivision" name="division">
+                                <option value="">Any division</option>
+                                <option value="A">Division A</option>
+                                <option value="B">Division B</option>
+                                <option value="C">Division C</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input
+                                type="date"
+                                id="date"
+                                name="date"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input
+                                type="time"
+                                id="time"
+                                name="time"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="capacity">Minimum Capacity</label>
+                            <input
+                                type="number"
+                                id="capacity"
+                                name="capacity"
+                                placeholder="Optional"
+                                min="1">
+
+                            <small>
+                                Only verified capacity data will be used.
+                            </small>
+                        </div>
+
+                        <div class="form-group resources-group">
+                            <label>Required Resources</label>
+
+                            <div class="resource-options">
+
+                                <label class="checkbox">
+                                    <input type="checkbox" id="ac" name="ac">
+                                    <span>AC</span>
+                                </label>
+
+                                <label class="checkbox">
+                                    <input
+                                        type="checkbox"
+                                        id="smartboard"
+                                        name="smartboard">
+                                    <span>Smart Board</span>
+                                </label>
+
+                                <label class="checkbox">
+                                    <input type="checkbox" id="wifi" name="wifi">
+                                    <span>Wi-Fi</span>
+                                </label>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="finder-actions">
+                        <button
+                            class="find-btn"
+                            id="findClassroom"
+                            type="submit">
+                            <span>⌕</span> Find Classroom
+                        </button>
+
+                        <button
+                            class="reset-btn"
+                            id="resetFilters"
+                            type="reset">
+                            Reset
+                        </button>
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- Search Results -->
+            <section class="results-section">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">SEARCH RESULTS</span>
+                        <h2>Available Classrooms</h2>
+                    </div>
+
+                    <span class="result-count" id="classroomResultCount">
+                        Search to see results
+                    </span>
+                </div>
+
+                <div
+                    class="empty-results"
+                    id="classroomResults"
+                    aria-live="polite">
+
+                    <div class="empty-icon">▦</div>
+
+                    <h3>Find an available classroom</h3>
+
+                    <p>
+                        Select a date and time to check classroom
+                        availability against the timetable records.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

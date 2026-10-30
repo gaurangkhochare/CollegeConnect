@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Timetable | CollegeConnect</title>
+
+    <link rel="stylesheet" href="css/timetable.css">
+</head>
+
+<body data-requires-auth="true">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-mark">CC</div>
+
+            <div>
+                <h2>CollegeConnect</h2>
+                <span>Smart College Resource Management</span>
+            </div>
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <div class="nav-section">
+
+                <p class="nav-title">MAIN</p>
+
+                <a href="dashboard.html">
+                    <span class="nav-icon">⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="classrooms.html">
+                    <span class="nav-icon">▦</span>
+                    Classrooms
+                </a>
+
+                <a href="timetable.html" class="active">
+                    <span class="nav-icon">◫</span>
+                    Timetable
+                </a>
+
+                <a href="complaints.html">
+                    <span class="nav-icon">⚑</span>
+                    Complaints
+                </a>
+
+            </div>
+
+
+            <div class="nav-section">
+
+            
+            </div>
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+                <div class="help-icon">?</div>
+
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact your college administrator.</p>
+                </div>
+
+            </div>
+
+
+            <a href="login.html" class="signout" id="signOutBtn">
+                <span>↪</span>
+                Sign Out
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+
+                <span>CollegeConnect</span>
+
+                <b>/</b>
+
+                <strong>Timetable</strong>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button class="notification-btn">
+                    ♢
+                </button>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar" id="profileAvatar">
+                        U
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="profileName">User</strong>
+
+                        <span id="profileRole">Student</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page Content -->
+        <section class="page-content">
+
+
+            <!-- Page Heading -->
+            <div class="page-heading">
+
+                <div>
+
+                    <span class="page-label">
+                        ACADEMIC SCHEDULE
+                    </span>
+
+                    <h1>Timetable</h1>
+
+                    <p>
+                        View your college timetable and find lectures,
+                        classrooms and available time slots.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Timetable Controls -->
+            <section class="controls-card">
+
+
+                <div class="controls-header">
+
+                    <div class="controls-icon">
+                        ◫
+                    </div>
+
+                    <div>
+
+                        <h2>Timetable Finder</h2>
+
+                        <p>
+                            Select your branch and division to view the schedule.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-grid">
+
+
+                    <!-- Branch -->
+                    <div class="form-group">
+
+                        <label for="branch">
+                            Branch
+                        </label>
+
+                        
+<select id="branch">
+    <option value="">Select branch</option>
+    <option value="INFT">INFT</option>
+    <option value="CMPN">CMPN</option>
+    <option value="EXTC">EXTC</option>
+    <option value="EXCS">EXCS</option>
+    <option value="BIOMED">BIOMED</option>
+</select>
+
+
+                    
+<!-- Division -->
+<div class="form-group">
+    <label for="division">Division</label>
+    <select id="division" name="division">
+        <option value="">Select Division</option>
+        <option value="A">Division A</option>
+        <option value="B">Division B</option>
+        <option value="C">Division C</option>
+    </select>
+</div>
+
+
+                        
+<div class="form-group">
+    <label for="year">Year</label>
+    <select id="year">
+        <option value="">Select year</option>
+        <option value="FE">First Year (FE)</option>
+        <option value="SE">Second Year (SE)</option>
+        <option value="TE">Third Year (TE)</option>
+        <option value="BE">Final Year (BE)</option>
+    </select>
+</div>
+
+
+                    </div>
+
+
+                    <!-- Day -->
+                    <div class="form-group">
+
+                        <label for="day">
+                            Day
+                        </label>
+
+                        <select id="day">
+
+                            <option value="">
+                                Select day
+                            </option>
+
+                            <option value="monday">
+                                Monday
+                            </option>
+
+                            <option value="tuesday">
+                                Tuesday
+                            </option>
+
+                            <option value="wednesday">
+                                Wednesday
+                            </option>
+
+                            <option value="thursday">
+                                Thursday
+                            </option>
+
+                            <option value="friday">
+                                Friday
+                            </option>
+
+                            <option value="saturday">
+                                Saturday
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- View -->
+                    <div class="form-group">
+
+                        <label for="view">
+                            View
+                        </label>
+
+                        <select id="view">
+
+                            <option value="weekly">
+                                Weekly Timetable
+                            </option>
+
+                            <option value="daily">
+                                Daily Schedule
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="controls-actions">
+
+                    <button class="view-btn" id="viewTimetable">
+
+                        <span>◫</span>
+
+                        View Timetable
+
+                    </button>
+
+
+                    <button class="reset-btn" id="resetTimetable">
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Timetable Section -->
+            <section class="timetable-section">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            CLASS SCHEDULE
+                        </span>
+
+                        <h2>Weekly Timetable</h2>
+
+                    </div>
+
+
+                    <div class="week-navigation">
+
+                        <button class="week-btn">
+                            ‹
+                        </button>
+
+                        <span>
+                            Current Week
+                        </span>
+
+                        <button class="week-btn">
+                            ›
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Timetable -->
+                <div class="timetable-card">
+
+
+                    <!-- Empty State -->
+                    <div class="empty-timetable">
+
+                        <div class="empty-icon">
+                            ◫
+                        </div>
+
+                        <h3>
+                            No timetable information available yet.
+                        </h3>
+
+                        <p>
+                            Your college timetable will appear here once
+                            branch, division and lecture schedule data
+                            are configured.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- Timetable Legend -->
+            <section class="legend-section">
+
+                <div class="legend-item">
+
+                    <span class="legend-dot lecture"></span>
+
+                    <span>Lecture</span>
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-dot practical"></span>
+
+                    <span>Practical</span>
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-dot break"></span>
+
+                    <span>Break</span>
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

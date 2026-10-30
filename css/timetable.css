@@ -1,0 +1,981 @@
+/* =========================================
+   COLLEGE CONNECT - TIMETABLE
+   ========================================= */
+
+:root {
+    --sidebar: #0B1F33;
+    --sidebar-hover: #12314A;
+
+    --background: #172B3A;
+    --surface: #203847;
+    --surface-light: #263F4E;
+    --surface-hover: #2C4858;
+
+    --border: #34515F;
+
+    --text: #E8F0F2;
+    --text-secondary: #9FB3BC;
+    --text-muted: #718894;
+
+    --teal: #20C7B2;
+    --teal-dark: #119B8B;
+    --cyan: #31D7E8;
+
+    --coral: #FF8066;
+    --success: #39D98A;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    padding: 24px 16px;
+
+    background: var(--sidebar);
+
+    border-right: 1px solid #17364A;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 4px 8px 28px;
+}
+
+.logo-mark {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--teal);
+
+    color: #06251F;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.logo h2 {
+    font-size: 16px;
+    letter-spacing: 0.2px;
+}
+
+.logo span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+}
+
+
+/* Navigation */
+
+.sidebar-nav {
+    flex: 1;
+}
+
+.nav-section {
+    margin-bottom: 28px;
+}
+
+.nav-title {
+    padding: 0 12px;
+
+    margin-bottom: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+.sidebar-nav a,
+.signout {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 11px 13px;
+
+    margin-bottom: 4px;
+
+    border-radius: 8px;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.sidebar-nav a:hover,
+.signout:hover {
+    background: var(--sidebar-hover);
+    color: var(--text);
+}
+
+.sidebar-nav a.active {
+    background: rgba(32, 199, 178, 0.13);
+
+    color: var(--teal);
+
+    border-left: 3px solid var(--teal);
+}
+
+.nav-icon {
+    width: 20px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+/* Sidebar Bottom */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.help-box {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    background: #102A3E;
+
+    border: 1px solid #1C4054;
+
+    border-radius: 10px;
+}
+
+.help-icon {
+    width: 27px;
+    height: 27px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(32, 199, 178, 0.12);
+
+    color: var(--teal);
+
+    font-weight: bold;
+}
+
+.help-box strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.help-box p {
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.main-content {
+    min-height: 100vh;
+
+    margin-left: 250px;
+}
+
+
+/* =========================================
+   TOPBAR
+   ========================================= */
+
+.topbar {
+    height: 72px;
+
+    padding: 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #192F3F;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+}
+
+.breadcrumb b {
+    color: #49616D;
+}
+
+.breadcrumb strong {
+    color: var(--text-secondary);
+
+    font-weight: 500;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.notification-btn {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: var(--surface);
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.notification-btn:hover {
+    background: var(--surface-hover);
+    color: var(--teal);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--teal-dark);
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.profile-info strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.profile-info span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   PAGE CONTENT
+   ========================================= */
+
+.page-content {
+    max-width: 1450px;
+
+    margin: auto;
+
+    padding: 34px;
+}
+
+
+/* Page Heading */
+
+.page-heading {
+    margin-bottom: 28px;
+}
+
+.page-label,
+.section-label {
+    color: var(--teal);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.page-heading h1 {
+    margin-top: 7px;
+
+    font-size: 30px;
+    font-weight: 650;
+
+    letter-spacing: -0.5px;
+}
+
+.page-heading p {
+    margin-top: 7px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CONTROLS CARD
+   ========================================= */
+
+.controls-card {
+    padding: 25px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.controls-header {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.controls-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(32, 199, 178, 0.12);
+
+    color: var(--teal);
+
+    font-size: 21px;
+}
+
+.controls-header h2 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.controls-header p {
+    margin-top: 4px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   FILTER GRID
+   ========================================= */
+
+.filter-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    padding-top: 23px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.form-group select {
+    width: 100%;
+    height: 43px;
+
+    padding: 0 13px;
+
+    background: #182F3E;
+
+    border: 1px solid #3A5663;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.form-group select:focus {
+    border-color: var(--teal);
+
+    box-shadow: 0 0 0 3px rgba(32, 199, 178, 0.08);
+}
+
+
+/* =========================================
+   CONTROL ACTIONS
+   ========================================= */
+
+.controls-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+.view-btn,
+.reset-btn {
+    height: 42px;
+
+    padding: 0 20px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.view-btn {
+    border: none;
+
+    background: var(--teal);
+
+    color: #06251F;
+}
+
+.view-btn:hover {
+    background: #2BDAC4;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 18px rgba(32, 199, 178, 0.2);
+}
+
+.view-btn span {
+    margin-right: 6px;
+}
+
+.reset-btn {
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    color: var(--text-secondary);
+}
+
+.reset-btn:hover {
+    background: var(--surface-hover);
+
+    color: var(--text);
+}
+
+
+/* =========================================
+   TIMETABLE SECTION
+   ========================================= */
+
+.timetable-section {
+    margin-top: 32px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    margin-top: 5px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   WEEK NAVIGATION
+   ========================================= */
+
+.week-navigation {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.week-navigation span {
+    min-width: 105px;
+
+    text-align: center;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+.week-btn {
+    width: 31px;
+    height: 31px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: var(--surface);
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.week-btn:hover {
+    background: var(--surface-hover);
+
+    color: var(--teal);
+
+    border-color: var(--teal);
+}
+
+
+/* =========================================
+   TIMETABLE CARD
+   ========================================= */
+
+.timetable-card {
+    min-height: 390px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   EMPTY TIMETABLE
+   ========================================= */
+
+.empty-timetable {
+    min-height: 390px;
+
+    padding: 50px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 64px;
+    height: 64px;
+
+    margin-bottom: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: rgba(32, 199, 178, 0.08);
+
+    color: var(--teal);
+
+    font-size: 29px;
+}
+
+.empty-timetable h3 {
+    color: var(--text);
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.empty-timetable p {
+    max-width: 510px;
+
+    margin-top: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   LEGEND
+   ========================================= */
+
+.legend-section {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 15px;
+
+    padding: 13px 16px;
+
+    background: #1B3242;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+.legend-dot.lecture {
+    background: var(--teal);
+}
+
+.legend-dot.practical {
+    background: var(--cyan);
+}
+
+.legend-dot.break {
+    background: var(--coral);
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1050px) {
+
+    .filter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        width: 70px;
+
+        padding: 20px 10px;
+    }
+
+    .logo div:not(.logo-mark),
+    .sidebar-nav .nav-title {
+        display: none;
+    }
+
+    .sidebar-nav a {
+        justify-content: center;
+
+        font-size: 0;
+    }
+
+    .nav-icon {
+        font-size: 18px;
+    }
+
+    .help-box {
+        justify-content: center;
+    }
+
+    .help-box div:not(.help-icon) {
+        display: none;
+    }
+
+    .signout {
+        justify-content: center;
+
+        font-size: 0;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+    .page-content {
+        padding: 22px 18px;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .page-heading h1 {
+        font-size: 24px;
+    }
+
+    .controls-card {
+        padding: 18px;
+    }
+
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .controls-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .view-btn,
+    .reset-btn {
+        width: 100%;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .legend-section {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* Timetable results */
+.timetable-day {
+    margin: 24px 0;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.timetable-day h3 {
+    margin: 0 0 16px;
+    color: #1e3a8a;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.timetable-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.timetable-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+}
+
+.timetable-table th,
+.timetable-table td {
+    padding: 13px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.timetable-table th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+}
+
+.timetable-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.timetable-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .timetable-day {
+        padding: 12px;
+    }
+
+    .timetable-table th,
+    .timetable-table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Timetable text visibility fix */
+.timetable-card,
+.timetable-card table,
+.timetable-card td {
+    color: #334155;
+}
+
+.timetable-card th {
+    color: #1e293b;
+}
+
+.timetable-card h3,
+.timetable-card h4 {
+    color: #1e3a8a;
+}

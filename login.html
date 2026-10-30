@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | CollegeConnect</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <main class="login-container">
+      <section class="login-card">
+        <div class="brand-mark">CC</div>
+        <h1>Welcome to CollegeConnect</h1>
+        <p class="subtitle">Sign in to manage your campus resources</p>
+
+        <div class="auth-tabs">
+          <button type="button" class="tab active" id="loginTab">Login</button>
+          <button type="button" class="tab" id="registerTab">Register</button>
+        </div>
+
+        <form id="authForm">
+          <div class="form-group" id="nameGroup" hidden>
+            <label for="name">Full name</label>
+            <input id="name" name="name" autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">College email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="you@college.edu"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              minlength="8"
+              autocomplete="current-password"
+              placeholder="Minimum 8 characters"
+            />
+          </div>
+
+          <div class="form-group" id="roleGroup" hidden>
+            <label for="role">Account role</label>
+            <select id="role" name="role">
+              <option value="student">Student</option>
+              <option value="cr">Class Representative (CR)</option>
+              <option value="professor">Faculty / Professor</option>
+            </select>
+          </div>
+
+          <p id="authMessage" role="status" aria-live="polite"></p>
+          <button type="submit" class="submit-btn" id="submitAuth">
+            Login
+          </button>
+        </form>
+
+        <a class="back-link" href="index.html">← Back to home</a>
+      </section>
+    </main>
+    <script src="js/config.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

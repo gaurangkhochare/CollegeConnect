@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CollegeConnect</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body data-requires-auth="true">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">C</div>
+            <span>College<span>Connect</span></span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-title">MAIN MENU</p>
+
+            <a href="dashboard.html" class="nav-item active">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="classrooms.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Classrooms</span>
+            </a>
+
+            <a href="timetable.html" class="nav-item">
+                <span class="nav-icon">□</span>
+                <span>Timetable</span>
+            </a>
+
+            <a href="complaints.html" class="nav-item">
+                <span class="nav-icon">⚠</span>
+                <span>Complaints</span>
+            </a>
+
+        
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+                <div class="help-icon">?</div>
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact administration</p>
+                </div>
+            </div>
+
+            <a href="login.html" class="logout" id="dashboardLogout">
+                <span>↪</span>
+                Sign Out
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div class="mobile-menu">☰</div>
+
+            <div class="page-location">
+                <span>Campus</span>
+                <strong>/ Dashboard</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="notification-btn" type="button"
+                        onclick="alert('Notifications are coming soon.');">
+                    <span>♧</span>
+                    <i></i>
+                </button>
+
+                <!-- Dynamic user profile -->
+                <div class="user-profile">
+
+                    <div class="user-avatar" id="profileAvatar">U</div>
+
+                    <div class="user-info">
+                        <strong id="profileName">User</strong>
+                        <span id="profileRole">College Member</span>
+                    </div>
+
+                    <span class="dropdown-arrow">▾</span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <section class="dashboard-content">
+
+            <!-- WELCOME -->
+            <div class="welcome-section">
+
+                <div>
+                    <p class="welcome-label">COLLEGECONNECT</p>
+
+                    <h1>Campus Dashboard</h1>
+
+                    <p>
+                        Access classroom availability, timetables,
+                        campus resources and infrastructure updates.
+                    </p>
+                </div>
+
+                <div class="date-display">
+                    <span>TODAY</span>
+                    <strong id="dashboardDate">—</strong>
+                </div>
+
+            </div>
+
+            <!-- STAT CARDS -->
+            <div class="stats-grid">
+
+                <!-- Available Classrooms -->
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon teal">▦</div>
+                        <span class="stat-status">LIVE</span>
+                    </div>
+
+                    <p>Available Classrooms</p>
+                    <h2 id="availableClassroomsCount">—</h2>
+
+                    <span class="stat-description">
+                        Availability data from database
+                    </span>
+                </div>
+
+                <!-- Occupied Classrooms -->
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon cyan">◫</div>
+                        <span class="stat-status">LIVE</span>
+                    </div>
+
+                    <p>Occupied Classrooms</p>
+                    <h2 id="occupiedClassroomsCount">—</h2>
+
+                    <span class="stat-description">
+                        Current classroom occupancy
+                    </span>
+                </div>
+
+                <!-- Active Complaints -->
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon coral">!</div>
+                        <span class="stat-status warning">TRACKING</span>
+                    </div>
+
+                    <p>Active Complaints</p>
+                    <h2 id="activeComplaintsCount">—</h2>
+
+                    <span class="stat-description">
+                        Pending and in-progress complaints
+                    </span>
+                </div>
+
+
+            </div>
+
+            <!-- QUICK ACTIONS -->
+            <div class="dashboard-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">QUICK ACCESS</p>
+                        <h2>Quick Actions</h2>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+
+                    <a href="classrooms.html" class="quick-action">
+                        <div class="quick-icon teal-bg">▦</div>
+
+                        <div>
+                            <strong>Find Classroom</strong>
+                            <span>Search available rooms</span>
+                        </div>
+
+                        <b>→</b>
+                    </a>
+
+                    <a href="timetable.html" class="quick-action">
+                        <div class="quick-icon cyan-bg">□</div>
+
+                        <div>
+                            <strong>View Timetable</strong>
+                            <span>Check schedules</span>
+                        </div>
+
+                        <b>→</b>
+                    </a>
+
+                    <a href="complaints.html" class="quick-action">
+                        <div class="quick-icon coral-bg">!</div>
+
+                        <div>
+                            <strong>Report an Issue</strong>
+                            <span>Submit a complaint</span>
+                        </div>
+
+                        <b>→</b>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RECENT ACTIVITY -->
+            <div class="dashboard-panel activity-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">CAMPUS ACTIVITY</p>
+                        <h2>Recent Updates</h2>
+                    </div>
+
+                    <a href="complaints.html">View All →</a>
+                </div>
+
+                <div class="activity-empty">
+                    <div class="activity-icon">◌</div>
+
+                    <div>
+                        <h3>No recent activity</h3>
+
+                        <p>
+                            Updates, classroom changes and complaint
+                            activity will appear here.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- EXISTING SHARED JAVASCRIPT -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        // Display today's date
+        const dateElement = document.getElementById("dashboardDate");
+
+        if (dateElement) {
+            dateElement.textContent = new Date().toLocaleDateString(
+                "en-IN",
+                {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+        }
+
+        // Load live dashboard statistics
+        async function loadDashboardStats() {
+
+            const fields = {
+                available_classrooms: "availableClassroomsCount",
+                occupied_classrooms: "occupiedClassroomsCount",
+                active_complaints: "activeComplaintsCount",
+            };
+
+            try {
+                const response = await fetch(
+                    `${window.COLLEGECONNECT_API_BASE_URL}/api/dashboard/stats`,
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
+                );
+
+                if (response.status === 401) {
+                    window.location.href = "login.html";
+                    return;
+                }
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Dashboard API failed: ${response.status}`
+                    );
+                }
+
+                const data = await response.json();
+
+                Object.entries(fields).forEach(([key, elementId]) => {
+                    const element = document.getElementById(elementId);
+
+                    if (element && data[key] !== undefined) {
+                        element.textContent = data[key];
+                    }
+                });
+
+            } catch (error) {
+                console.error("Dashboard statistics error:", error);
+            }
+        }
+
+        // Load dashboard data
+        loadDashboardStats();
+
+        // Sign out using the existing backend session
+        document.getElementById("dashboardLogout")?.addEventListener(
+            "click",
+            async function (event) {
+
+                event.preventDefault();
+
+                try {
+                    await fetch(
+                        `${window.COLLEGECONNECT_API_BASE_URL}/api/logout`,
+                        {
+                            method: "POST",
+                            credentials: "include"
+                        }
+                    );
+                } catch (error) {
+                    console.error("Logout request failed:", error);
+                }
+
+                window.location.href = "login.html";
+            }
+        );
+    </script>
+
+</body>
+
+</html>

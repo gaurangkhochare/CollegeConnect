@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints | CollegeConnect</title>
+    <link rel="stylesheet" href="css/complaints.css">
+</head>
+
+<body data-requires-auth="true">
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-mark">CC</div>
+            <div>
+                <h2>CollegeConnect</h2>
+                <span>Smart College Resource Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <p class="nav-title">MAIN</p>
+                <a href="dashboard.html"><span class="nav-icon">⌂</span> Dashboard</a>
+                <a href="classrooms.html"><span class="nav-icon">▦</span> Classrooms</a>
+                <a href="timetable.html"><span class="nav-icon">◫</span> Timetable</a>
+                <a href="complaints.html" class="active"><span class="nav-icon">⚑</span> Complaints</a>
+            </div>
+
+           
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-box">
+                <div class="help-icon">?</div>
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact your college administrator.</p>
+                </div>
+            </div>
+
+            <a href="login.html" class="signout" id="signOutBtn">
+                <span>↪</span> Sign Out
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="breadcrumb">
+                <span>CollegeConnect</span>
+                <b>/</b>
+                <strong>Complaints</strong>
+            </div>
+
+            <div class="topbar-right">
+                <button class="notification-btn" type="button">♢</button>
+
+                <div class="profile">
+                    <div class="profile-avatar" id="profileAvatar">U</div>
+                    <div class="profile-info">
+                        <strong id="profileName">User</strong>
+                        <span id="profileRole">Student</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="page-content">
+            <div class="page-heading">
+                <div>
+                    <span class="page-label">ISSUE MANAGEMENT</span>
+                    <h1 id="complaintsPageTitle">Complaints &amp; Issues</h1>
+                    <p id="complaintsPageDescription">
+                        Report campus issues and track their resolution.
+                    </p>
+                </div>
+
+                <button class="report-btn" id="openComplaintForm" type="button">
+                    <span>+</span> Report an Issue
+                </button>
+            </div>
+
+            <section class="complaint-stats">
+                <div class="stat-card">
+                    <div class="stat-icon total">◫</div>
+                    <div>
+                        <span class="stat-label">TOTAL</span>
+                        <h2 id="totalComplaints">—</h2>
+                        <p>Reported issues</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon pending">◷</div>
+                    <div>
+                        <span class="stat-label">PENDING</span>
+                        <h2 id="pendingComplaints">—</h2>
+                        <p>Awaiting action</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon progress">↻</div>
+                    <div>
+                        <span class="stat-label">IN PROGRESS</span>
+                        <h2 id="inProgressComplaints">—</h2>
+                        <p>Being resolved</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon resolved">✓</div>
+                    <div>
+                        <span class="stat-label">RESOLVED</span>
+                        <h2 id="resolvedComplaints">—</h2>
+                        <p>Successfully fixed</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="complaint-panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="section-label">ISSUE TRACKER</span>
+                        <h2 id="complaintListHeading">Reported Issues</h2>
+                    </div>
+
+                    <div class="issue-filter">
+                        <select id="statusFilter" aria-label="Filter by status">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+
+                        <select id="categoryFilter" aria-label="Filter by category">
+                            <option value="">All Categories</option>
+                            <option value="classroom">Classroom</option>
+                            <option value="ac">AC</option>
+                            <option value="wifi">Wi-Fi</option>
+                            <option value="smartboard">Smart Board</option>
+                            <option value="electricity">Electricity</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <button type="button" id="resetFilters">Reset Filters</button>
+                    </div>
+                </div>
+
+                <div id="complaintsList" class="complaints-list">
+                    <div class="empty-complaints">
+                        <div class="empty-icon">⚑</div>
+                        <h3>Loading reported issues...</h3>
+                        <p>Connecting to the CollegeConnect database.</p>
+                        <button class="empty-report-btn" id="emptyReportBtn" type="button">
+                            <span>+</span> Report Your First Issue
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="process-section" id="resolutionProcess">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">RESOLUTION PROCESS</span>
+                        <h2>How Issue Resolution Works</h2>
+                    </div>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-number">01</div>
+                        <div class="process-icon">⚑</div>
+                        <h3>Report</h3>
+                        <p>Describe the issue and provide its location and category.</p>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-card">
+                        <div class="process-number">02</div>
+                        <div class="process-icon">◷</div>
+                        <h3>Review</h3>
+                        <p>The responsible authority reviews and assigns the issue.</p>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-card">
+                        <div class="process-number">03</div>
+                        <div class="process-icon">🔧</div>
+                        <h3>Resolve</h3>
+                        <p>The concerned team works on fixing the reported problem.</p>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-card">
+                        <div class="process-number">04</div>
+                        <div class="process-icon">✓</div>
+                        <h3>Close</h3>
+                        <p>The issue is marked resolved after successful completion.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="complaintModal">
+        <div class="complaint-modal">
+            <div class="modal-header">
+                <div>
+                    <span class="section-label">NEW REPORT</span>
+                    <h2>Report an Issue</h2>
+                </div>
+
+                <button class="close-modal" id="closeComplaintForm"
+                        type="button" aria-label="Close modal">×</button>
+            </div>
+
+            <form id="complaintForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="issueCategory">Issue Category</label>
+                        <select id="issueCategory" name="category" required>
+                            <option value="">Select category</option>
+                            <option value="classroom">Classroom</option>
+                            <option value="ac">AC</option>
+                            <option value="wifi">Wi-Fi</option>
+                            <option value="smartboard">Smart Board</option>
+                            <option value="electricity">Electricity</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueLocation">Location</label>
+                        <input type="text" id="issueLocation" name="location"
+                               placeholder="Enter classroom or location" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="issueTitle">Issue Title</label>
+                    <input type="text" id="issueTitle" name="title"
+                           placeholder="Briefly describe the problem" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="issueDescription">Description</label>
+                    <textarea id="issueDescription" name="description" rows="5"
+                              placeholder="Provide details about the issue..."
+                              required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="issuePriority">Priority</label>
+                    <select id="issuePriority" name="priority" required>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" id="cancelComplaint">
+                        Cancel
+                    </button>
+                    <button type="submit" class="submit-btn">
+                        Submit Complaint
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
