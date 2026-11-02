@@ -14,7 +14,7 @@ db_url = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}
 engine = create_engine(db_url)
 
 # Load Excel file
-excel_path = "TT EXCEL.xlsx"
+excel_path = "path/to/excel.xlsx"
 xls = pd.ExcelFile(excel_path)
 
 all_dfs = []
